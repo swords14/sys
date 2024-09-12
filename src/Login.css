@@ -101,4 +101,17 @@ body {
     color: white;
     text-decoration: underline;
   }
+  .link-button {
+    background: none;
+    border: none;
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+    padding: 0;
+    font-size: 1rem;
+  }
+  
+  .link-button:hover {
+    color: darkblue;
+  }
   

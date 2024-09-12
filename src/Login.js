@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Importando useNavigate para navegação
 import './Login.css'; // Arquivo de estilos separado
 
 function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate(); // Hook para navegação
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -27,7 +29,7 @@ function Login() {
           </div>
           <div className="input-group">
             <input
-              type="Senha"
+              type="password" // Corrigi o tipo de input para "password"
               placeholder="Senha"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -39,12 +41,25 @@ function Login() {
               <input type="checkbox" />
               Lembrar-me
             </label>
-            <a href="#Esqueceu sua senha">Esqueceu sua senha?</a>
+            <button
+              type="button"
+              className="link-button"
+              onClick={() => navigate('/password-recovery')} // Navegação para a tela de recuperação de senha
+            >
+              Esqueceu sua senha?
+            </button>
           </div>
           <button type="submit" className="login-btn">Entrar</button>
         </form>
         <p>
-          Não possui uma conta? <a href="#Register">Registrar</a>
+          Não possui uma conta?{' '}
+          <button
+            type="button"
+            className="link-button"
+            onClick={() => navigate('/create-account')} // Navegação para a tela de registro
+          >
+            Registrar
+          </button>
         </p>
       </div>
     </div>
